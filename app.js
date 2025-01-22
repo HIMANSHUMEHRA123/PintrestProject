@@ -5,10 +5,13 @@ const expressSession = require('express-session');
 const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local'); 
+const  flash = require("connect-flash");
 const indexRouter = require('./routes/index');
 const usersRouter = require("./routes/user")
 const User = require('./models/user');
+
 // Middleware setup
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
